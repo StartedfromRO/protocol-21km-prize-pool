@@ -107,7 +107,7 @@ def create_presentation():
             "desc": "Baseline Anchor Category",
             "points": [
                 "1st Place Open: RM 2,000",
-                "1st Place Veteran: RM 1,500",
+                "1st Place Veteran: RM 2,000 (Same as Open)",
                 "Age Groups: Men (18-39, 40+), Women (18-39, 40+)",
                 "Standard Malaysian decay curve applied to subsequent ranks."
             ],
@@ -129,7 +129,7 @@ def create_presentation():
             "desc": "Short Distance Competitive",
             "points": [
                 "1st Place Open: RM 1,000",
-                "1st Place Veteran: RM 800",
+                "1st Place Veteran: RM 1,000 (Same as Open)",
                 "Prizes scaled at 50% of the 21KM baseline",
                 "Keeps categories balanced while rewarding fast runners."
             ],
@@ -203,10 +203,10 @@ def create_presentation():
     headers = ["Category", "1st", "2nd", "3rd", "4th", "5th", "6th-10th (each)"]
     data_a = [
         ["21KM Men/Women Open", "RM 2,000", "RM 1,200", "RM 800", "RM 500", "RM 300", "RM 150"],
-        ["21KM Men/Women Veteran", "RM 1,500", "RM 900", "RM 600", "RM 400", "RM 250", "RM 120"],
+        ["21KM Men/Women Veteran", "RM 2,000", "RM 1,200", "RM 800", "RM 500", "RM 300", "RM 150"],
         ["21KM Group Relay (Team)", "RM 1,000", "RM 600", "RM 400", "—", "—", "—"],
         ["10KM Men/Women Open", "RM 1,000", "RM 600", "RM 400", "RM 250", "RM 150", "RM 80"],
-        ["10KM Men/Women Veteran", "RM 800", "RM 500", "RM 300", "RM 200", "RM 120", "RM 60"]
+        ["10KM Men/Women Veteran", "RM 1,000", "RM 600", "RM 400", "RM 250", "RM 150", "RM 80"]
     ]
 
     # Populate Headers
@@ -240,7 +240,7 @@ def create_presentation():
     # Total Box
     total_box = slide3.shapes.add_textbox(Inches(0.75), Inches(6.6), Inches(11.83), Inches(0.5))
     p_tot = total_box.text_frame.paragraphs[0]
-    p_tot.text = "Total Cash Prize Budget Required (Option A): RM 31,640"
+    p_tot.text = "Total Cash Prize Budget Required (Option A): RM 35,400"
     p_tot.font.name = 'Arial'
     p_tot.font.size = Pt(14)
     p_tot.font.bold = True
@@ -265,10 +265,10 @@ def create_presentation():
     headers_b = ["Category", "1st", "2nd", "3rd", "4th", "5th", "6th-10th"]
     data_b = [
         ["21KM Men/Women Open", "RM 2,000", "RM 1,200", "RM 800", "RM 500", "RM 300", "Trophy Only"],
-        ["21KM Men/Women Veteran", "RM 1,500", "RM 900", "RM 600", "RM 400", "RM 250", "Trophy Only"],
+        ["21KM Men/Women Veteran", "RM 2,000", "RM 1,200", "RM 800", "RM 500", "RM 300", "Trophy Only"],
         ["21KM Group Relay (Team)", "RM 1,000", "RM 600", "RM 400", "—", "—", "—"],
         ["10KM Men/Women Open", "RM 1,000", "RM 600", "RM 400", "RM 250", "RM 150", "Trophy Only"],
-        ["10KM Men/Women Veteran", "RM 800", "RM 500", "RM 300", "RM 200", "RM 120", "Trophy Only"]
+        ["10KM Men/Women Veteran", "RM 1,000", "RM 600", "RM 400", "RM 250", "RM 150", "Trophy Only"]
     ]
 
     # Populate Headers
@@ -302,7 +302,7 @@ def create_presentation():
     # Total Box
     total_box_b = slide4.shapes.add_textbox(Inches(0.75), Inches(6.6), Inches(11.83), Inches(0.5))
     p_tot_b = total_box_b.text_frame.paragraphs[0]
-    p_tot_b.text = "Total Cash Prize Budget Required (Option B): RM 25,440"
+    p_tot_b.text = "Total Cash Prize Budget Required (Option B): RM 30,800"
     p_tot_b.font.name = 'Arial'
     p_tot_b.font.size = Pt(14)
     p_tot_b.font.bold = True
@@ -336,7 +336,7 @@ def create_presentation():
     p.font.color.rgb = accent_green
     
     p = tf_a.add_paragraph()
-    p.text = "Total Budget: RM 31,640"
+    p.text = "Total Budget: RM 35,400"
     p.font.name = 'Arial'
     p.font.size = Pt(22)
     p.font.bold = True
@@ -367,7 +367,7 @@ def create_presentation():
     p.font.color.rgb = accent_blue
     
     p = tf_b.add_paragraph()
-    p.text = "Total Budget: RM 25,440"
+    p.text = "Total Budget: RM 30,800"
     p.font.name = 'Arial'
     p.font.size = Pt(22)
     p.font.bold = True
@@ -375,7 +375,7 @@ def create_presentation():
     p.space_before = Pt(8)
     
     p = tf_b.add_paragraph()
-    p.text = "• Saves RM 6,200 (19.6% reduction in total prize pool).\n• Maintains top-tier status while rewarding 6th-10th with high-quality trophies."
+    p.text = "• Saves RM 4,600 (13.0% reduction in total prize pool).\n• Maintains top-tier status while rewarding 6th-10th with high-quality trophies."
     p.font.name = 'Arial'
     p.font.size = Pt(11)
     p.font.color.rgb = text_muted
@@ -400,7 +400,7 @@ def create_presentation():
     p.space_after = Pt(8)
     
     p = tf_rec.add_paragraph()
-    p.text = "For an event targeting 8,000 participants, Option A is highly recommended. The additional RM 6,200 required to pay cash down to 10th place is easily offset by the incremental ticket revenue from competitive running clubs. By advertising cash prizes up to 10th place, you establish the event as a premier competitive milestone on the national calendar."
+    p.text = "For an event targeting 8,000 participants, Option A is highly recommended. The additional RM 4,600 required to pay cash down to 10th place is easily offset by the incremental ticket revenue from competitive running clubs. By advertising cash prizes up to 10th place, you establish the event as a premier competitive milestone on the national calendar."
     p.font.name = 'Arial'
     p.font.size = Pt(13)
     p.font.color.rgb = text_white
