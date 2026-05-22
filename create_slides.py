@@ -200,7 +200,7 @@ def create_presentation():
         table.columns[col_idx].width = Inches(1.5)
     table.columns[6].width = Inches(1.5)
 
-    headers = ["Category", "1st", "2nd", "3rd", "4th", "5th", "6th - 10th (each)"]
+    headers = ["Category", "1st", "2nd", "3rd", "4th", "5th", "6th-10th (each)"]
     data_a = [
         ["21KM Men/Women Open", "RM 2,000", "RM 1,200", "RM 800", "RM 500", "RM 300", "RM 150"],
         ["21KM Men/Women Veteran", "RM 1,500", "RM 900", "RM 600", "RM 400", "RM 250", "RM 120"],
@@ -262,7 +262,7 @@ def create_presentation():
         table_b.columns[col_idx].width = Inches(1.5)
     table_b.columns[6].width = Inches(1.5)
 
-    headers_b = ["Category", "1st", "2nd", "3rd", "4th", "5th", "6th - 10th"]
+    headers_b = ["Category", "1st", "2nd", "3rd", "4th", "5th", "6th-10th"]
     data_b = [
         ["21KM Men/Women Open", "RM 2,000", "RM 1,200", "RM 800", "RM 500", "RM 300", "Trophy Only"],
         ["21KM Men/Women Veteran", "RM 1,500", "RM 900", "RM 600", "RM 400", "RM 250", "Trophy Only"],
