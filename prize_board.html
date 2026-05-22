@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KL City 21KM 2026 - Cash Prizes</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 28, 45, 0.6);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            
+            /* Accent Colors */
+            --primary-accent: #ff3366;
+            --gold: #ffb800;
+            --silver: #cbd5e1;
+            --bronze: #cd7f32;
+            --highlight: #38bdf8;
+            
+            /* Glassmorphism shadow */
+            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 51, 102, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.08) 0%, transparent 40%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 3rem 1.5rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-accent), #ff6b6b);
+            color: white;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #ffffff, #e2e8f0, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Sections layout */
+        .prize-section {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        .section-title span {
+            color: var(--primary-accent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            transition: all 0.5s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 51, 102, 0.3);
+            box-shadow: 0 12px 40px 0 rgba(255, 51, 102, 0.1);
+        }
+
+        .card:hover::before {
+            background: linear-gradient(90deg, var(--primary-accent), var(--highlight));
+        }
+
+        .card-header {
+            margin-bottom: 2rem;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--highlight);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Prize list representation */
+        .prize-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .prize-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+        }
+
+        .prize-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .position-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .badge-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #000;
+        }
+
+        .badge-1st { background-color: var(--gold); color: #000; box-shadow: 0 0 10px rgba(255, 184, 0, 0.4); }
+        .badge-2nd { background-color: var(--silver); color: #000; }
+        .badge-3rd { background-color: var(--bronze); color: #fff; }
+        .badge-other { background-color: #334155; color: var(--text-secondary); }
+
+        .prize-value {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .prize-value span {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.1rem;
+        }
+
+        /* Relay Card Specific styles */
+        .relay-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(22, 28, 45, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        .relay-card:hover {
+            border-color: var(--highlight);
+            box-shadow: 0 12px 40px 0 rgba(56, 189, 248, 0.1);
+        }
+
+        .relay-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .relay-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .relay-info-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .relay-description {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .feature-tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--highlight);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Rules callout box */
+        .rules-callout {
+            background-color: rgba(30, 41, 59, 0.4);
+            border-left: 4px solid var(--primary-accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 4rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .rules-callout h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .rules-callout p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="event-badge">8,000 Runners Scale</div>
+        <div class="event-badge" style="background: linear-gradient(135deg, var(--highlight), #0284c7); box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);">RM 31,640 Prize Pool</div>
+        <h1>KL City 21KM 2026</h1>
+        <p class="subtitle">Official Cash Prize Structure & Trophy Allocations (Option A - 10 Ranks)</p>
+    </header>
+
+    <!-- 21KM SECTION -->
+    <section class="prize-section">
+        <h2 class="section-title"><span>21KM</span> Finisher Categories</h2>
+        <div class="grid">
+            
+            <!-- Card: Men Open -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Competitive</span>
+                    <h3 class="card-title">21KM Men Open</h3>
+                </div>
+                <ul class="prize-list">
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-1st">1</div> 1st Place</div>
+                        <div class="prize-value">RM 2,000 <span>+ Champion Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-2nd">2</div> 2nd Place</div>
+                        <div class="prize-value">RM 1,200 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-3rd">3</div> 3rd Place</div>
+                        <div class="prize-value">RM 800 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">4</div> 4th Place</div>
+                        <div class="prize-value">RM 500 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">5</div> 5th Place</div>
+                        <div class="prize-value">RM 300 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">6</div> 6th Place</div>
+                        <div class="prize-value">RM 150</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">7</div> 7th Place</div>
+                        <div class="prize-value">RM 150</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">8</div> 8th Place</div>
+                        <div class="prize-value">RM 150</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">9</div> 9th Place</div>
+                        <div class="prize-value">RM 150</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">10</div> 10th Place</div>
+                        <div class="prize-value">RM 150</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card: Women Open -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Competitive</span>
+                    <h3 class="card-title">21KM Women Open</h3>
+                </div>
+                <ul class="prize-list">
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-1st">1</div> 1st Place</div>
+                        <div class="prize-value">RM 2,000 <span>+ Champion Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-2nd">2</div> 2nd Place</div>
+                        <div class="prize-value">RM 1,200 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-3rd">3</div> 3rd Place</div>
+                        <div class="prize-value">RM 800 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">4</div> 4th Place</div>
+                        <div class="prize-value">RM 500 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">5</div> 5th Place</div>
+                        <div class="prize-value">RM 300 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">6</div> 6th Place</div>
+                        <div class="prize-value">RM 150</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">7</div> 7th Place</div>
+                        <div class="prize-value">RM 150</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">8</div> 8th Place</div>
+                        <div class="prize-value">RM 150</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">9</div> 9th Place</div>
+                        <div class="prize-value">RM 150</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">10</div> 10th Place</div>
+                        <div class="prize-value">RM 150</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card: Men Veteran -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Competitive (40+)</span>
+                    <h3 class="card-title">21KM Men Veteran</h3>
+                </div>
+                <ul class="prize-list">
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-1st">1</div> 1st Place</div>
+                        <div class="prize-value">RM 1,500 <span>+ Champion Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-2nd">2</div> 2nd Place</div>
+                        <div class="prize-value">RM 900 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-3rd">3</div> 3rd Place</div>
+                        <div class="prize-value">RM 600 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">4</div> 4th Place</div>
+                        <div class="prize-value">RM 400 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">5</div> 5th Place</div>
+                        <div class="prize-value">RM 250 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">6</div> 6th Place</div>
+                        <div class="prize-value">RM 120</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">7</div> 7th Place</div>
+                        <div class="prize-value">RM 120</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">8</div> 8th Place</div>
+                        <div class="prize-value">RM 120</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">9</div> 9th Place</div>
+                        <div class="prize-value">RM 120</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">10</div> 10th Place</div>
+                        <div class="prize-value">RM 120</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card: Women Veteran -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Competitive (40+)</span>
+                    <h3 class="card-title">21KM Women Veteran</h3>
+                </div>
+                <ul class="prize-list">
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-1st">1</div> 1st Place</div>
+                        <div class="prize-value">RM 1,500 <span>+ Champion Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-2nd">2</div> 2nd Place</div>
+                        <div class="prize-value">RM 900 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-3rd">3</div> 3rd Place</div>
+                        <div class="prize-value">RM 600 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">4</div> 4th Place</div>
+                        <div class="prize-value">RM 400 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">5</div> 5th Place</div>
+                        <div class="prize-value">RM 250 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">6</div> 6th Place</div>
+                        <div class="prize-value">RM 120</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">7</div> 7th Place</div>
+                        <div class="prize-value">RM 120</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">8</div> 8th Place</div>
+                        <div class="prize-value">RM 120</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">9</div> 9th Place</div>
+                        <div class="prize-value">RM 120</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">10</div> 10th Place</div>
+                        <div class="prize-value">RM 120</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card: 21KM Group Relay -->
+            <div class="card relay-card">
+                <div class="relay-grid">
+                    <div class="relay-info-box">
+                        <span class="card-tag" style="color: var(--highlight);">Special Team Challenge</span>
+                        <h3 class="card-title" style="font-size: 2rem; margin-bottom: 1rem;">21KM Group Relay</h3>
+                        <p class="relay-description">
+                            Designated for team relay submissions (4 pax per team). Total prize pool is awarded directly to the team and split equally. Trophies are awarded to each teammate.
+                        </p>
+                        <div class="feature-tag-container">
+                            <span class="feature-tag">Teams of 4 Pax</span>
+                            <span class="feature-tag">Corporate & Clubs</span>
+                            <span class="feature-tag">Combined timing</span>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="prize-list">
+                            <li class="prize-item">
+                                <div class="position-label"><div class="badge-circle badge-1st">1</div> 1st Place Team</div>
+                                <div class="prize-value">RM 1,000 <span>(RM 250 / runner) + Trophies</span></div>
+                            </li>
+                            <li class="prize-item">
+                                <div class="position-label"><div class="badge-circle badge-2nd">2</div> 2nd Place Team</div>
+                                <div class="prize-value">RM 600 <span>(RM 150 / runner) + Trophies</span></div>
+                            </li>
+                            <li class="prize-item">
+                                <div class="position-label"><div class="badge-circle badge-3rd">3</div> 3rd Place Team</div>
+                                <div class="prize-value">RM 400 <span>(RM 100 / runner) + Trophies</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10KM SECTION -->
+    <section class="prize-section">
+        <h2 class="section-title"><span>10KM</span> Finisher Categories</h2>
+        <div class="grid">
+            
+            <!-- Card: Men Open -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Competitive</span>
+                    <h3 class="card-title">10KM Men Open</h3>
+                </div>
+                <ul class="prize-list">
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-1st">1</div> 1st Place</div>
+                        <div class="prize-value">RM 1,000 <span>+ Champion Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-2nd">2</div> 2nd Place</div>
+                        <div class="prize-value">RM 600 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-3rd">3</div> 3rd Place</div>
+                        <div class="prize-value">RM 400 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">4</div> 4th Place</div>
+                        <div class="prize-value">RM 250 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">5</div> 5th Place</div>
+                        <div class="prize-value">RM 150 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">6</div> 6th Place</div>
+                        <div class="prize-value">RM 80</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">7</div> 7th Place</div>
+                        <div class="prize-value">RM 80</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">8</div> 8th Place</div>
+                        <div class="prize-value">RM 80</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">9</div> 9th Place</div>
+                        <div class="prize-value">RM 80</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">10</div> 10th Place</div>
+                        <div class="prize-value">RM 80</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card: Women Open -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Competitive</span>
+                    <h3 class="card-title">10KM Women Open</h3>
+                </div>
+                <ul class="prize-list">
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-1st">1</div> 1st Place</div>
+                        <div class="prize-value">RM 1,000 <span>+ Champion Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-2nd">2</div> 2nd Place</div>
+                        <div class="prize-value">RM 600 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-3rd">3</div> 3rd Place</div>
+                        <div class="prize-value">RM 400 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">4</div> 4th Place</div>
+                        <div class="prize-value">RM 250 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">5</div> 5th Place</div>
+                        <div class="prize-value">RM 150 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">6</div> 6th Place</div>
+                        <div class="prize-value">RM 80</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">7</div> 7th Place</div>
+                        <div class="prize-value">RM 80</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">8</div> 8th Place</div>
+                        <div class="prize-value">RM 80</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">9</div> 9th Place</div>
+                        <div class="prize-value">RM 80</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">10</div> 10th Place</div>
+                        <div class="prize-value">RM 80</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card: Men Veteran -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Competitive (40+)</span>
+                    <h3 class="card-title">10KM Men Veteran</h3>
+                </div>
+                <ul class="prize-list">
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-1st">1</div> 1st Place</div>
+                        <div class="prize-value">RM 800 <span>+ Champion Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-2nd">2</div> 2nd Place</div>
+                        <div class="prize-value">RM 500 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-3rd">3</div> 3rd Place</div>
+                        <div class="prize-value">RM 300 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">4</div> 4th Place</div>
+                        <div class="prize-value">RM 200 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">5</div> 5th Place</div>
+                        <div class="prize-value">RM 120 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">6</div> 6th Place</div>
+                        <div class="prize-value">RM 60</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">7</div> 7th Place</div>
+                        <div class="prize-value">RM 60</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">8</div> 8th Place</div>
+                        <div class="prize-value">RM 60</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">9</div> 9th Place</div>
+                        <div class="prize-value">RM 60</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">10</div> 10th Place</div>
+                        <div class="prize-value">RM 60</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card: Women Veteran -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-tag">Competitive (40+)</span>
+                    <h3 class="card-title">10KM Women Veteran</h3>
+                </div>
+                <ul class="prize-list">
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-1st">1</div> 1st Place</div>
+                        <div class="prize-value">RM 800 <span>+ Champion Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-2nd">2</div> 2nd Place</div>
+                        <div class="prize-value">RM 500 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-3rd">3</div> 3rd Place</div>
+                        <div class="prize-value">RM 300 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">4</div> 4th Place</div>
+                        <div class="prize-value">RM 200 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">5</div> 5th Place</div>
+                        <div class="prize-value">RM 120 <span>+ Trophy</span></div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">6</div> 6th Place</div>
+                        <div class="prize-value">RM 60</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">7</div> 7th Place</div>
+                        <div class="prize-value">RM 60</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">8</div> 8th Place</div>
+                        <div class="prize-value">RM 60</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">9</div> 9th Place</div>
+                        <div class="prize-value">RM 60</div>
+                    </li>
+                    <li class="prize-item">
+                        <div class="position-label"><div class="badge-circle badge-other">10</div> 10th Place</div>
+                        <div class="prize-value">RM 60</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- General Rules footer -->
+    <div class="rules-callout">
+        <h4>General Terms & Eligibility</h4>
+        <p>1. Cash prizes will be remitted to the winners' verified bank accounts within 30-45 days post-event after timing chips are validated and medical/doping clearances are cleared. 2. A physical trophy will be awarded to each individual podium placer (1st to 5th) and the top 3 teams in the Group Relay. 3. For Open categories, a maximum of two non-Malaysian participants are eligible to place inside the top 5 cash prize positions.</p>
+    </div>
+</div>
+
+</body>
+</html>
