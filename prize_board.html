@@ -57,6 +57,37 @@
             margin-bottom: 4rem;
         }
 
+        .brand-logo-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-accent), #7c3aed);
+            border-radius: 16px;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
+        }
+
+        .brand-logo-mark svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .brand-subtext {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-accent);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 0.5rem;
+        }
+
         .event-badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--primary-accent), #ff6b6b);
@@ -67,26 +98,36 @@
             letter-spacing: 2px;
             padding: 0.4rem 1.2rem;
             border-radius: 50px;
-            margin-bottom: 1rem;
             box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
             margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #ffffff, #e2e8f0, #94a3b8);
+            background: linear-gradient(135deg, #ffffff 0%, #ff3366 50%, #38bdf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
             color: var(--text-secondary);
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 650px;
+            margin: 0.5rem auto 0 auto;
+        }
+
+        .organiser-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            margin-top: 1.2rem;
         }
 
         /* Main Sections layout */
@@ -263,10 +304,23 @@
 
 <div class="container">
     <header>
-        <div class="event-badge">8,000 Runners Scale</div>
-        <div class="event-badge" style="background: linear-gradient(135deg, var(--highlight), #0284c7); box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);">RM 35,400 Prize Pool</div>
+        <div class="brand-logo-mark">
+            <svg viewBox="0 0 24 24">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+        </div>
+        <div class="brand-subtext">Protocol Running Series</div>
         <h1>PROTOCOL 21KM</h1>
+        
+        <div style="margin: 1rem 0 0.8rem 0; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+            <div class="event-badge">8,000 Runners Scale</div>
+            <div class="event-badge" style="background: linear-gradient(135deg, var(--highlight), #0284c7); box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);">RM 35,400 Prize Pool</div>
+        </div>
+
         <p class="subtitle">Official Cash Prize Structure & Trophy Allocations (Option A - 10 Ranks)</p>
+        <div class="organiser-tag">Organised by Persatuan Rekreasi Global Malaysia (PRGM)</div>
     </header>
 
     <!-- 21KM SECTION -->
